@@ -1,0 +1,249 @@
+/* --- CÀI ĐẶT CHUNG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffeef2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* --- CONTAINER CHÍNH --- */
+.container {
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    min-height: 300px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.container.shrink-mode {
+    padding: 15px 30px;
+    min-height: 0;
+    height: auto;
+    max-width: 450px;
+    border-radius: 50px;
+}
+
+.container.close-box {
+    /* Thu nhỏ về 0 */
+    max-width: 0;
+    width: 0;
+    min-height: 0;
+    height: 0;
+    
+    /* Xóa khoảng cách đệm để nó biến mất hẳn */
+    padding: 0;
+    margin: 0;
+    
+    /* Ẩn nội dung tràn ra khi thu nhỏ */
+    overflow: hidden;
+    
+    /* Mờ đi */
+    opacity: 0;
+}
+
+#contentStep1, #contentStep2 { transition: opacity 0.5s ease; width: 100%; }
+#bear-img { width: 180px; height: auto; margin-bottom: 20px; }
+h1 { color: #d32f2f; margin-bottom: 30px; font-family: 'Dancing Script', cursive; font-size: 2.5rem; }
+
+h2#secondMessage {
+    color: #d32f2f;
+    font-size: 1.8rem;
+    font-family: 'Dancing Script', cursive;
+    white-space: nowrap;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.buttons { display: flex; justify-content: center; gap: 20px; }
+.buttons button { padding: 12px 25px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s ease; }
+#yesBtn { background-color: #4CAF50; color: white; }
+#noBtn { background-color: #f44336; color: white; }
+.fade-out { opacity: 0 !important; pointer-events: none; }
+
+
+/* --- PHONG BÌ --- */
+.envlope-wrapper {
+    position: relative;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: translateY(100vh);
+    transition: all 1.5s ease-out;
+    
+    /* CHỈNH SỬA: Đẩy toàn bộ phong bì xuống thấp hơn một chút */
+    margin-top: 50px; 
+}
+
+#envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #d9534f;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.envlope-wrapper.fly-up {
+    opacity: 1;
+    transform: translateY(0); /* Bay về vị trí gốc */
+}
+
+.front { position: absolute; width: 0; height: 0; z-index: 3; }
+.flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-bottom: 82px solid transparent; border-top: 98px solid #d9534f; transform-origin: top; pointer-events: none; }
+.pocket { border-left: 140px solid #f5a3a2; border-right: 140px solid #f5a3a2; border-bottom: 90px solid #ff6f61; border-top: 90px solid transparent; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
+
+/* --- LÁ THƯ --- */
+.letter {
+    position: relative;
+    background-color: #fff;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 95%; 
+    top: 5%;
+    border-radius: 6px;
+    box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px 10px;
+}
+
+.letter-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.letter p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem; 
+    color: #333;
+    margin: 4px 0;
+    line-height: 1.2;
+}
+
+.letter p.greeting {
+    align-self: flex-start; 
+    margin-left: 5px;      
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    background-color: #ffebee;
+    color: #d81b60;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* --- POPUP CUỐI CÙNG --- */
+.popup-message {
+    position: absolute;
+    bottom: -50px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #d32f2f;
+    font-weight: bold;
+    white-space: nowrap; 
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.popup-message.show {
+    opacity: 1;
+    transform: scale(1);
+    /* Dịch lên sát nút bấm hơn */
+    bottom: -40px; 
+}
+
+
+/* Animation */
+.open .flap { transform: rotateX(180deg); transition: transform 0.4s ease, z-index 0.6s; z-index: 1; }
+.close .flap { transform: rotateX(0deg); transition: transform 0.4s 0.6s ease, z-index 1s; z-index: 5; }
+.close .letter { transform: translateY(0px); transition: transform 0.4s ease, z-index 1s; z-index: 1; }
+
+/* CHỈNH SỬA: Giảm độ bay từ -160px xuống -140px */
+.open .letter { transform: translateY(-120px); transition: transform 1.5s 0.6s ease, z-index 0.6s; z-index: 2; }
+
+.hearts { position: absolute; top: 90px; left: 0; right: 0; z-index: 2; }
+.heart { position: absolute; bottom: 0; right: 10%; pointer-events: none; }
+.heart:before, .heart:after { position: absolute; content: ""; left: 50px; top: 0; width: 50px; height: 80px; background: #e60073; border-radius: 50px 50px 0 0; transform: rotate(-45deg); transform-origin: 0 100%; pointer-events: none; }
+.heart:after { left: 0; transform: rotate(45deg); transform-origin: 100% 100%; }
+.close .heart { opacity: 0; animation: none; }
+/* Trái tim 1 */
+.a1 { 
+    left: 20%; 
+    transform: scale(0.6); 
+    /* Đổi '1' thành 'infinite' và '4 alternate' thành 'infinite alternate' */
+    animation: slideUp 4s linear infinite, sideSway 2s ease-in-out infinite alternate; 
+    animation-fill-mode: forwards; 
+    animation-delay: 0.7s; 
+}
+
+/* Trái tim 2 */
+.a2 { 
+    left: 45%; 
+    transform: scale(1); 
+    /* Đổi thành infinite */
+    animation: slideUp 5s linear infinite, sideSway 4s ease-in-out infinite alternate; 
+    animation-fill-mode: forwards; 
+    animation-delay: 0.7s; 
+}
+
+/* Trái tim 3 */
+.a3 { 
+    left: 15%; 
+    transform: scale(0.8); 
+    /* Đổi thành infinite */
+    animation: slideUp 7s linear infinite, sideSway 2s ease-in-out infinite alternate; 
+    animation-fill-mode: forwards; 
+    animation-delay: 0.7s; 
+}
+
+/* --- QUAN TRỌNG: Thêm đoạn này để tim mờ dần khi bay lên đỉnh --- */
+@keyframes slideUp { 
+    0% { top: 0; opacity: 1; } 
+    80% { opacity: 1; }
+    100% { top: -600px; opacity: 0; } /* Thêm opacity 0 để tim biến mất mượt mà khi lên cao */
+}
+@keyframes sideSway { 0% { margin-left: 0px; } 100% { margin-left: 50px; } }
+
+/* CHỈNH SỬA: Dịch nút bấm xuống thấp hơn so với phong bì một chút để thoáng */
+.reset { text-align: center; margin-top: 60px; }
+.reset button { font-weight: 800; background-color: transparent; border: solid 2px #d9534f; border-radius: 4px; color: #d9534f; display: inline-block; font-size: 1rem; text-transform: uppercase; margin: 5px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease; }
+.reset button:hover { background-color: #d9534f; color: #fff; }

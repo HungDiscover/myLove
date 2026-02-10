@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine cho bé Nhã</title>
+    <link rel="icon" type="image/png" href="flower.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="contentStep1">
+            <img id="bear-img" src="bear.gif" alt="Cute Bear">
+            <h1 id="question">Làm người yêu anh nhé?</h1>
+            <div class="buttons" id="mainButtons">
+                <button id="yesBtn">Yes</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+
+        <div id="contentStep2" style="display: none;">
+            <h2 id="secondMessage">Anh có điều này muốn nói với em...</h2>
+        </div>
+    </div>
+
+    <div class="envlope-wrapper" id="envelopeContainer" style="display: none;">
+        <div id="envelope" class="close">
+            <div class="front flap"></div>
+            <div class="front pocket"></div>
+            
+            <div class="letter">
+                <div class="letter-content">
+                    <p class="greeting">Gửi em,</p>
+                    <p class="highlight">Người con gái đẹp nhất tuyệt trần.</p>
+                    <p class="highlight">Mỗi khi anh nhìn em,</p>
+                    <p class="highlight">thế giới như ngừng lại.</p>
+                </div>
+            </div>
+
+            <div class="hearts">
+                <div class="heart a1"></div>
+                <div class="heart a2"></div>
+                <div class="heart a3"></div>
+            </div>
+        </div>
+
+        <div class="reset">
+            <button id="open">Open</button>
+            <button id="reset">Close</button>
+        </div>
+
+        <div id="finalPopup" class="popup-message">
+            Happy Valentine nhé người yêu của tui ❤️
+        </div>
+    </div>
+    <audio id="bgMusic">
+        <source src="music.mp3" type="audio/mp3">
+        </audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
