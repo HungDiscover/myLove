@@ -246,4 +246,28 @@ h2#secondMessage {
 /* CHỈNH SỬA: Dịch nút bấm xuống thấp hơn so với phong bì một chút để thoáng */
 .reset { text-align: center; margin-top: 60px; }
 .reset button { font-weight: 800; background-color: transparent; border: solid 2px #d9534f; border-radius: 4px; color: #d9534f; display: inline-block; font-size: 1rem; text-transform: uppercase; margin: 5px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease; }
+
 .reset button:hover { background-color: #d9534f; color: #fff; }
+
+/* --- RESPONSIVE CHO ĐIỆN THOẠI (Màn hình nhỏ hơn 600px) --- */
+@media screen and (max-width: 600px) {
+    
+    /* 1. Giảm kích thước chữ của thông điệp thứ 2 để vừa 1 dòng */
+    h2#secondMessage {
+        font-size: 1.1rem !important; /* Giảm từ 1.8rem xuống 1.1rem */
+        white-space: nowrap; /* Vẫn giữ 1 dòng */
+    }
+
+    /* 2. Chỉnh lại kích thước khung chứa khi thu nhỏ */
+    .container.shrink-mode {
+        max-width: 90% !important; /* Cho phép rộng ra gần hết màn hình */
+        padding: 10px 5px !important; /* Giảm padding 2 bên để tiết kiệm chỗ */
+        border-radius: 30px !important;
+    }
+    
+    /* 3. Chỉnh lại popup Happy Valentine nếu cần */
+    .popup-message {
+        font-size: 1rem !important;
+        bottom: -50px !important;
+    }
+}
