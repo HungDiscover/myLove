@@ -254,12 +254,13 @@ h2#secondMessage {
     
     /* 1. Giảm kích thước chữ của thông điệp thứ 2 để vừa 1 dòng */
     h2#secondMessage {
-        font-size: 1.1rem !important; /* Giảm từ 1.8rem xuống 1.1rem */
+        font-size: 1.30rem !important; /* Giảm từ 1.8rem xuống 1.1rem */
         white-space: nowrap; /* Vẫn giữ 1 dòng */
     }
 
     /* 2. Chỉnh lại kích thước khung chứa khi thu nhỏ */
     .container.shrink-mode {
+        width: 90%;
         max-width: 90% !important; /* Cho phép rộng ra gần hết màn hình */
         padding: 10px 5px !important; /* Giảm padding 2 bên để tiết kiệm chỗ */
         border-radius: 30px !important;
@@ -271,3 +272,4 @@ h2#secondMessage {
         bottom: -50px !important;
     }
 }
+
