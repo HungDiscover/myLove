@@ -254,7 +254,7 @@ h2#secondMessage {
     
     /* 1. Giảm kích thước chữ của thông điệp thứ 2 để vừa 1 dòng */
     h2#secondMessage {
-        font-size: 1.4rem !important; /* Giảm từ 1.8rem xuống 1.1rem */
+        font-size: 1.6rem !important; /* Giảm từ 1.8rem xuống 1.1rem */
         white-space: nowrap; /* Vẫn giữ 1 dòng */
     }
 
@@ -272,5 +272,6 @@ h2#secondMessage {
         bottom: -50px !important;
     }
 }
+
 
 
